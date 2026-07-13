@@ -1,0 +1,178 @@
+/* Google Fonts imports */
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&subset=latin,vietnamese&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ===== NỀN & CHỮ ===== */
+    --background: 0 0% 100%; /* #FFFFFF - Trắng tinh */
+    --foreground: 265 30% 11%; /* #1A1525 - Tím đậm gần đen */
+
+    --card: 260 100% 98%; /* #F8F6FF - Trắng tím siêu nhạt */
+    --card-foreground: 265 30% 11%;
+
+    --popover: 260 100% 98%;
+    --popover-foreground: 265 30% 11%;
+
+    /* ===== PRIMARY: TÍM LAVENDER NHẠT ===== */
+    --primary: 262 50% 70%; /* #A48ED9 - Tím lavender */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF - Trắng */
+
+    /* ===== SECONDARY: TÍM PASTEL ===== */
+    --secondary: 258 50% 82%; /* #C5B8E8 - Tím pastel */
+    --secondary-foreground: 265 30% 11%; /* Tím đậm */
+
+    /* ===== MUTED: NỀN PHỤ ===== */
+    --muted: 260 100% 98%; /* #F8F6FF - Trắng tím */
+    --muted-foreground: 265 15% 37%; /* #5A4F6E - Tím xám */
+
+    /* ===== ACCENT: TÍM LAVENDER ===== */
+    --accent: 260 50% 76%; /* #B8A5E0 - Tím lavender */
+    --accent-foreground: 0 0% 100%; /* #FFFFFF - Trắng */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 260 25% 92%; /* #E8E2F0 - Tím cực nhạt */
+    --input: 260 25% 92%;
+    --ring: 262 50% 70%; /* Tím lavender - focus ring */
+
+    --radius: 0.5rem;
+
+    /* ===== CHART ===== */
+    --chart-1: 262 50% 70%; /* Tím lavender */
+    --chart-2: 258 50% 82%; /* Tím pastel */
+    --chart-3: 260 50% 76%; /* Tím lavender đậm hơn */
+    --chart-4: 265 30% 11%; /* Tím đậm */
+    --chart-5: 260 100% 98%; /* Trắng tím */
+
+    /* ===== SIDEBAR ===== */
+    --sidebar-background: 260 100% 98%;
+    --sidebar-foreground: 265 30% 11%;
+    --sidebar-primary: 262 50% 70%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 258 50% 82%;
+    --sidebar-accent-foreground: 265 30% 11%;
+    --sidebar-border: 260 25% 92%;
+    --sidebar-ring: 262 50% 70%;
+
+    /* ===== FIGMA TOKENS ===== */
+    --figma-surface: 260 100% 98%;
+    --figma-highlight: 262 50% 70%;
+    --figma-subtle: 265 30% 5%;
+    --figma-color-9: 0 0% 100%;
+    --figma-color-10: 265 30% 11%;
+    --figma-color-11: 258 50% 82%;
+    --figma-text-1: 265 30% 11%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 14.9%;
+
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%;
+
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 0 0% 14.9%;
+
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+
+    --input: 0 0% 14.9%;
+
+    --ring: 0 0% 83.1%;
+
+    --chart-1: 220 70% 50%;
+
+    --chart-2: 160 60% 45%;
+
+    --chart-3: 30 80% 55%;
+
+    --chart-4: 280 65% 60%;
+
+    --chart-5: 340 75% 55%;
+
+    --sidebar-background: 240 5.9% 10%;
+
+    --sidebar-foreground: 240 4.8% 95.9%;
+
+    --sidebar-primary: 224.3 76.3% 48%;
+
+    --sidebar-primary-foreground: 0 0% 100%;
+
+    --sidebar-accent: 240 3.7% 15.9%;
+
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+
+    --sidebar-border: 240 3.7% 15.9%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif; /* Dùng Inter cho toàn bộ nội dung */
+  }
+
+  img,
+  video,
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Áp dụng Be Vietnam Pro cho các thẻ heading */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .heading {
+    font-family: "Be Vietnam Pro", sans-serif;
+  }
+}
