@@ -160,7 +160,7 @@ export default function Portfolio() {
             transition={{ delay: 0.9, duration: 0.8 }}
             className="text-[clamp(14px,1.5vw,26px)] font-light text-secondary mt-4"
           >
-            Sinh viên Kinh tế quốc tế · ULIS-VNU
+            Sinh viên Kinh tế quốc tế ·  UEB-VNU
           </motion.p>
         </div>
       </motion.section>
@@ -192,7 +192,7 @@ export default function Portfolio() {
               </p>
               <p className="text-[clamp(16px,1.3vw,22px)] font-normal leading-[1.7] text-secondary-foreground">
                 Tôi là <strong>Cao Thùy Dung</strong>, sinh viên ngành{" "}
-                <strong>Kinh tế quốc tế</strong>, ULIS-VNU. Tôi luôn tin rằng
+                <strong>Kinh tế quốc tế</strong>,  UEB-VNU. Tôi luôn tin rằng
                 mỗi trải nghiệm đều là một cơ hội để học hỏi, hoàn thiện bản
                 thân và tiến gần hơn đến những mục tiêu mình theo đuổi.
               </p>
@@ -370,7 +370,7 @@ export default function Portfolio() {
                       </p>
                     </div>
                     <p className="text-[14px] md:text-[18px] font-bold text-secondary-foreground">
-                      Sinh viên Kinh tế quốc tế · Năm 1 · ULIS-VNU
+                      Sinh viên Kinh tế quốc tế · Năm 1 ·  UEB-VNU
                     </p>
                   </div>
                 </div>
