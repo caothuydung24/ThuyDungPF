@@ -11,13 +11,13 @@ const assetPath = (fileName) =>
   `${import.meta.env.BASE_URL}${fileName.replace(/^\//, "")}`;
 
 const images = {
-  hero: assetPath("Rectangle-2636.png"),
+  hero: assetPath("td3.jpg"),
   aboutFeature: assetPath("td1.jpg"),
   aboutPortrait: assetPath("td2.jpg"),
-  setupMain: assetPath("Group-19142@2x.png"),
-  setupLaptop: assetPath("Rectangle-29441@2x.png"),
-  setupCreative: assetPath("Rectangle-26603@2x.png"),
-  setupWorkspace: assetPath("Rectangle-2944@2x.png"),
+  setupMain: assetPath("td4.jpg"),
+  setupLaptop: assetPath("td5.jpg"),
+  setupCreative: assetPath("td6.jpg"),
+  setupWorkspace: assetPath("td7.jpg"),
 };
 
 const skillIconByName = {
@@ -136,13 +136,17 @@ export default function Portfolio() {
           src={images.hero}
           alt="Không gian công nghệ"
         />
-        <div className="absolute inset-0 bg-figma-subtle opacity-[0.42]" />
+        {/* Overlay tối đều, nhẹ, giữ ảnh vẫn sống động ở rìa */}
+        <div className="absolute inset-0 bg-figma-subtle opacity-[0.35]" />
+        {/* Gradient tập trung sau chữ để đảm bảo tương phản dù mây đổi màu */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(30,20,60,0.55)_0%,rgba(30,20,60,0.18)_55%,transparent_80%)]" />
+
         <div className="absolute inset-0 flex flex-col items-center justify-center z-10 text-center px-4">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-[clamp(14px,1.5vw,24px)] font-medium text-primary/80 mb-2 tracking-widest uppercase"
+            className="text-[clamp(21px,2.25vw,45px)] font-medium text-white mb-2 tracking-widest uppercase drop-shadow-[0_2px_10px_rgba(40,20,70,0.55)]"
           >
             Nhập môn Công nghệ số và Ứng dụng Trí tuệ Nhân tạo
           </motion.p>
@@ -150,7 +154,7 @@ export default function Portfolio() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="text-[clamp(36px,6vw,120px)] font-extrabold text-primary leading-none heading"
+            className="text-[clamp(54px,9vw,225px)] font-extrabold text-white leading-none heading drop-shadow-[0_8px_36px_rgba(60,35,110,0.55)]"
           >
             Cao Thùy Dung
           </motion.p>
@@ -158,9 +162,9 @@ export default function Portfolio() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.8 }}
-            className="text-[clamp(14px,1.5vw,26px)] font-light text-secondary mt-4"
+            className="text-[clamp(21px,2.25vw,48px)] font-light text-white/90 mt-4"
           >
-            Sinh viên Kinh tế quốc tế ·  UEB-VNU
+            Sinh viên Kinh tế quốc tế · UEB-VNU
           </motion.p>
         </div>
       </motion.section>
@@ -192,9 +196,9 @@ export default function Portfolio() {
               </p>
               <p className="text-[clamp(16px,1.3vw,22px)] font-normal leading-[1.7] text-secondary-foreground">
                 Tôi là <strong>Cao Thùy Dung</strong>, sinh viên ngành{" "}
-                <strong>Kinh tế quốc tế</strong>,  UEB-VNU. Tôi luôn tin rằng
-                mỗi trải nghiệm đều là một cơ hội để học hỏi, hoàn thiện bản
-                thân và tiến gần hơn đến những mục tiêu mình theo đuổi.
+                <strong>Kinh tế quốc tế</strong>, UEB-VNU. Tôi luôn tin rằng mỗi
+                trải nghiệm đều là một cơ hội để học hỏi, hoàn thiện bản thân và
+                tiến gần hơn đến những mục tiêu mình theo đuổi.
               </p>
               <p className="text-[clamp(16px,1.3vw,22px)] font-normal leading-[1.7] text-secondary-foreground">
                 Tôi là người có tinh thần trách nhiệm, ham học hỏi và luôn chủ
@@ -370,7 +374,7 @@ export default function Portfolio() {
                       </p>
                     </div>
                     <p className="text-[14px] md:text-[18px] font-bold text-secondary-foreground">
-                      Sinh viên Kinh tế quốc tế · Năm 1 ·  UEB-VNU
+                      Sinh viên Kinh tế quốc tế · Năm 1 · UEB-VNU
                     </p>
                   </div>
                 </div>
@@ -513,21 +517,21 @@ export default function Portfolio() {
             {[
               {
                 i1: images.setupLaptop,
-                i2: images.setupCreative,
                 title: "Máy tính / Laptop",
                 sub: "Thiết bị học tập chính",
+                inset: true,
               },
               {
                 i1: images.setupCreative,
-                i2: images.setupWorkspace,
                 title: "Google Scholar",
-                sub: "Công cụ tìm kiếm & nghiên cứu",
+                sub: "Công cụ nghiên cứu & học thuật",
+                inset: false,
               },
               {
                 i1: images.setupWorkspace,
-                i2: images.setupLaptop,
                 title: "Google Workspace",
                 sub: "Làm việc và cộng tác nhóm",
+                inset: true,
               },
             ].map((item, i) => (
               <motion.div
@@ -538,16 +542,18 @@ export default function Portfolio() {
                 viewport={{ once: true }}
                 className="flex flex-col sm:flex-row items-start sm:items-center gap-5 p-5 bg-muted rounded-[20px] w-full"
               >
-                <img
-                  src={item.i1}
-                  className="w-full sm:w-[226px] h-[150px] sm:h-full object-cover rounded-[20px]"
-                  alt="Setup Item"
-                />
+                <div className="w-full sm:w-[226px] h-[150px] shrink-0 rounded-[20px] bg-muted flex items-center justify-center overflow-hidden">
+                  <img
+                    src={item.i1}
+                    className={`object-cover rounded-[14px] ${item.inset ? "w-[88%] h-[88%]" : "w-full h-full"}`}
+                    alt="Setup Item"
+                  />
+                </div>
                 <div className="flex flex-col gap-3 items-start w-full">
-                  <p className="text-[clamp(19px,1.82vw,30px)] font-extrabold text-muted-foreground">
+                  <p className="text-[clamp(19px,1.82vw,30px)] font-extrabold text-primary">
                     {item.title}
                   </p>
-                  <p className="text-[16px] md:text-[18px] font-normal text-muted-foreground/80">
+                  <p className="text-[16px] md:text-[18px] font-normal text-primary/80">
                     {item.sub}
                   </p>
                 </div>

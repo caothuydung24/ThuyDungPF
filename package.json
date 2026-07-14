@@ -12,7 +12,8 @@
     "typecheck": "tsc -p ./jsconfig.json",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "deploy:thuydung": "gh-pages -d dist -r git@github.com-thuydung:caothuydung24/ThuyDungPF.git"
   },
   "dependencies": {
     "@hello-pangea/dnd": "^17.0.0",
